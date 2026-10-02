@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Hochdruckreinigung für viele Untergründe – kraftvoll, schnell und sauber.">
+  <title>POWER CLEAN – Hochdruckreinigung</title>
+  <style>
+    :root{
+      --green:#78be20;
+      --green-dark:#3f720c;
+      --green-light:#b8df63;
+      --black:#11140f;
+      --cream:#f4f7ed;
+      --white:#fff;
+      --muted:#687060;
+      --shadow:0 18px 50px rgba(30,55,10,.14);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Arial,Helvetica,sans-serif;
+      color:var(--black);
+      background:var(--cream);
+      line-height:1.5;
+    }
+    nav{
+      position:fixed;top:0;left:0;right:0;z-index:20;
+      display:flex;align-items:center;justify-content:space-between;
+      padding:18px 6%;
+      background:rgba(244,247,237,.88);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(63,114,12,.12);
+    }
+    .logo{font-size:1.35rem;font-weight:900;letter-spacing:-1px}
+    .logo span{color:var(--green-dark)}
+    nav a{color:var(--black);text-decoration:none;font-weight:700;margin-left:28px}
+    .nav-btn{background:var(--green);padding:11px 18px;border-radius:999px}
+    .hero{
+      min-height:92vh;
+      padding:145px 6% 80px;
+      display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center;
+      background:
+        radial-gradient(circle at 85% 15%,rgba(184,223,99,.45),transparent 30%),
+        linear-gradient(135deg,#f7f9f1 0%,#e4f0ce 100%);
+      overflow:hidden;
+    }
+    .badge{
+      display:inline-block;background:var(--black);color:white;
+      padding:8px 13px;border-radius:999px;font-size:.8rem;font-weight:800;
+      letter-spacing:.08em;text-transform:uppercase;margin-bottom:20px;
+    }
+    h1{font-size:clamp(3.2rem,7vw,7rem);line-height:.9;letter-spacing:-.07em;max-width:850px}
+    h1 span{color:var(--green-dark)}
+    .hero p{font-size:1.15rem;color:var(--muted);max-width:620px;margin:26px 0}
+    .buttons{display:flex;gap:13px;flex-wrap:wrap}
+    .btn{
+      display:inline-block;text-decoration:none;padding:15px 22px;border-radius:12px;
+      font-weight:900;transition:.2s;cursor:pointer;border:0;font-size:1rem;
+    }
+    .btn-main{background:var(--green);color:#10150b;box-shadow:0 10px 25px rgba(120,190,32,.25)}
+    .btn-dark{background:var(--black);color:white}
+    .btn:hover{transform:translateY(-2px)}
+    .machine{
+      min-height:480px;border-radius:32px;position:relative;overflow:hidden;
+      background:
+        linear-gradient(145deg,rgba(255,255,255,.45),transparent),
+        repeating-linear-gradient(135deg,#70ad1d 0 18px,#7fc42a 18px 36px);
+      box-shadow:var(--shadow);
+      display:flex;align-items:center;justify-content:center;
+    }
+    .machine:before{
+      content:"";position:absolute;width:310px;height:310px;border-radius:50%;
+      border:42px solid rgba(255,255,255,.16);
+    }
+    .washer{
+      position:relative;width:240px;height:310px;background:#161a13;border-radius:30px 30px 22px 22px;
+      box-shadow:18px 20px 0 rgba(0,0,0,.14);transform:rotate(-5deg);
+    }
+    .washer:before{
+      content:"";position:absolute;top:25px;left:28px;right:28px;height:85px;
+      background:var(--green);border-radius:17px;
+    }
+    .washer:after{
+      content:"POWER CLEAN";position:absolute;top:52px;left:45px;color:#17200d;font-weight:1000;font-size:20px;
+    }
+    .wheel{position:absolute;bottom:-18px;width:62px;height:62px;background:#0c0e0a;border-radius:50%;border:10px solid #31382b}
+    .w1{left:25px}.w2{right:25px}
+    .gun{position:absolute;width:190px;height:28px;background:#151913;border-radius:12px;right:-125px;top:130px;transform:rotate(27deg)}
+    .hose{position:absolute;width:190px;height:150px;border:14px solid #151913;border-left-color:transparent;border-radius:50%;right:-95px;bottom:60px;transform:rotate(-20deg)}
+    section{padding:95px 6%}
+    .section-head{max-width:720px;margin-bottom:45px}
+    .eyebrow{color:var(--green-dark);font-weight:900;text-transform:uppercase;letter-spacing:.12em;font-size:.8rem}
+    h2{font-size:clamp(2.2rem,4vw,4.2rem);line-height:1;letter-spacing:-.05em;margin-top:9px}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .card{background:white;border-radius:22px;padding:30px;box-shadow:var(--shadow);border:1px solid #e5eadc}
+    .icon{font-size:2rem;margin-bottom:18px}
+    .card h3{font-size:1.35rem;margin-bottom:8px}
+    .card p{color:var(--muted)}
+    .surfaces{background:#1b2415;color:white}
+    .surface-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+    .surface{
+      min-height:190px;padding:24px;border-radius:20px;
+      display:flex;flex-direction:column;justify-content:flex-end;
+      background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.7)),var(--green);
+      overflow:hidden;position:relative;
+    }
+    .surface:nth-child(2){background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.72)),#65726a}
+    .surface:nth-child(3){background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.72)),#9a8467}
+    .surface:nth-child(4){background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.72)),#4c5758}
+    .surface strong{font-size:1.4rem}.surface small{opacity:.82}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center}
+    .before-after{height:410px;border-radius:28px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;box-shadow:var(--shadow)}
+    .dirty,.clean{display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;font-size:2rem;font-weight:1000}
+    .dirty{background:repeating-linear-gradient(45deg,#5a554c 0 10px,#403c35 10px 20px);color:#ddd}
+    .clean{background:repeating-linear-gradient(45deg,#8acb35 0 10px,#69a822 10px 20px);color:#fff}
+    .steps{display:grid;gap:18px}
+    .step{display:flex;gap:16px;align-items:flex-start}
+    .num{min-width:42px;height:42px;border-radius:50%;background:var(--green);display:grid;place-items:center;font-weight:1000}
+    .step h3{margin-bottom:3px}
+    .step p{color:var(--muted)}
+    .cta{
+      margin:0 6% 80px;padding:65px;border-radius:30px;
+      background:var(--green);display:flex;align-items:center;justify-content:space-between;gap:25px;
+    }
+    .cta h2{max-width:700px}
+    footer{padding:35px 6%;background:var(--black);color:#aeb8a4;display:flex;justify-content:space-between;gap:20px}
+    footer strong{color:white}
+    @media(max-width:850px){
+      nav .links{display:none}
+      .hero,.split{grid-template-columns:1fr}
+      .hero{padding-top:125px}
+      .machine{min-height:390px}
+      .cards{grid-template-columns:1fr}
+      .surface-grid{grid-template-columns:1fr 1fr}
+      .cta{margin-left:4%;margin-right:4%;padding:40px 28px;flex-direction:column;align-items:flex-start}
+      footer{flex-direction:column}
+    }
+    @media(max-width:520px){
+      .surface-grid{grid-template-columns:1fr}
+      section{padding:70px 5%}
+      .machine{min-height:330px}
+      .washer{transform:scale(.8) rotate(-5deg)}
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">POWER<span>CLEAN</span></div>
+    <div class="links">
+      <a href="#vorteile">Vorteile</a>
+      <a href="#flaechen">Flächen</a>
+      <a href="#ablauf">Ablauf</a>
+      <a class="nav-btn" href="#kontakt">Kontakt</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div>
+      <div class="badge">Hochdruck. Sauber. Schnell.</div>
+      <h1>Schmutz raus.<br><span>Sauber rein.</span></h1>
+      <p>Hartnäckiger Schmutz auf Terrasse, Einfahrt, Stein oder Gartenmöbeln? Mit kontrolliertem Hochdruck wird aus „müsste mal sauber werden“ wieder „sieht aus wie neu“.</p>
+      <div class="buttons">
+        <a class="btn btn-main" href="#kontakt">Reinigung anfragen</a>
+        <a class="btn btn-dark" href="#flaechen">Flächen entdecken</a>
+      </div>
+    </div>
+    <div class="machine" aria-label="Illustration eines Hochdruckreinigers">
+      <div class="washer">
+        <div class="wheel w1"></div><div class="wheel w2"></div>
+        <div class="gun"></div><div class="hose"></div>
+      </div>
+    </div>
+  </header>
+
+  <section id="vorteile">
+    <div class="section-head">
+      <div class="eyebrow">Warum Hochdruck?</div>
+      <h2>Kraft, wo normaler Schrubber nicht reicht.</h2>
+    </div>
+    <div class="cards">
+      <article class="card"><div class="icon">💦</div><h3>Starker Wasserstrahl</h3><p>Entfernt viele typische Verschmutzungen schnell und gründlich – ohne stundenlanges Schrubben.</p></article>
+      <article class="card"><div class="icon">⚡</div><h3>Schneller sauber</h3><p>Große Flächen lassen sich effizient bearbeiten. Ideal für Frühjahrsputz und Auffrischungen.</p></article>
+      <article class="card"><div class="icon">🌱</div><h3>Frischer Look</h3><p>Verschmutzte Außenbereiche bekommen wieder ein gepflegtes Erscheinungsbild.</p></article>
+    </div>
+  </section>
+
+  <section class="surfaces" id="flaechen">
+    <div class="section-head">
+      <div class="eyebrow" style="color:#b8df63">Viele Untergründe</div>
+      <h2>Vom Hof bis zur Gartenbank.</h2>
+    </div>
+    <div class="surface-grid">
+      <div class="surface"><strong>Terrassen</strong><small>Holz, Stein & Verbundmaterial – je nach Material passend reinigen.</small></div>
+      <div class="surface"><strong>Einfahrten</strong><small>Beton, Pflaster & robuste Außenflächen.</small></div>
+      <div class="surface"><strong>Gartenmöbel</strong><small>Von Kunststoff bis robuste Oberflächen.</small></div>
+      <div class="surface"><strong>Fassaden & Wege</strong><small>Für geeignete, druckbeständige Flächen.</small></div>
+    </div>
+  </section>
+
+  <section id="ablauf">
+    <div class="split">
+      <div class="before-after">
+        <div class="dirty">VORHER</div>
+        <div class="clean">NACHHER</div>
+      </div>
+      <div>
+        <div class="eyebrow">So funktioniert's</div>
+        <h2>Einfach. Direkt. Sauber.</h2>
+        <div class="steps" style="margin-top:28px">
+          <div class="step"><div class="num">1</div><div><h3>Fläche prüfen</h3><p>Material und Verschmutzung bestimmen, damit der passende Druck gewählt werden kann.</p></div></div>
+          <div class="step"><div class="num">2</div><div><h3>Vorbereiten</h3><p>Lose Verschmutzungen entfernen und empfindliche Bereiche schützen.</p></div></div>
+          <div class="step"><div class="num">3</div><div><h3>Reinigen</h3><p>Mit geeignetem Abstand und passender Einstellung gleichmäßig arbeiten.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta" id="kontakt">
+    <div>
+      <div class="eyebrow" style="color:#18300a">Bereit für sauber?</div>
+      <h2>Deine Fläche. Unser Hochdruck.</h2>
+    </div>
+    <a class="btn btn-dark" href="mailto:info@powerclean.de">Jetzt Kontakt aufnehmen</a>
+  </div>
+
+  <footer>
+    <div><strong>POWERCLEAN</strong> – Hochdruckreinigung</div>
+    <div>© 2026 · Impressum · Datenschutz</div>
+  </footer>
+</body>
+</html>
